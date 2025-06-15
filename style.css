@@ -162,6 +162,25 @@ p {
   font-size: 0.875rem;
 }
 
+/* 
+#success-message {
+  display: none;
+  margin-top: 0.8rem;
+} */
+
+/* #success-message.show {
+  display: block !important;
+}
+
+.btn-success {
+  background: var(--success);
+  color: white;
+  border-radius: 12px;
+  width: 204px;
+  max-width: 300px;
+  font-size: 1.1rem;
+  pointer-events: none;
+} */
 
 
 #success-message {
