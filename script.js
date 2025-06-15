@@ -73,112 +73,71 @@ function initLazyLoading() {
   }
 }
 
-function initContactForm() {
-  const form = document.getElementById('formulario-contato');
-  const submitButton = document.getElementById('btn-submit');
-  const successMessage = document.getElementById('success-message');
-  if (!form || !submitButton || !successMessage) return;
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  if (submitButton.disabled) return;
 
-  const showError = (field, msg) => {
-    let error = field.parentNode.querySelector('.error-message');
-    if (!error) {
-      error = document.createElement('div');
-      error.className = 'error-message';
-      Object.assign(error.style, {
-        color: '#ff4d4f',
-        fontSize: '0.85em',
-        marginTop: '4px',
-        fontWeight: '500'
-      });
-      field.parentNode.appendChild(error);
+  clearErrors();
+
+  // Exibir botão de sucesso e esconder o botão de enviar assim que o usuário clicar
+  submitButton.style.display = 'none';
+  successMessage.style.display = 'block';
+
+  const formData = new FormData(form);
+  let firstError = null;
+  let hasError = false;
+
+  for (const [name, value] of formData.entries()) {
+    const field = form.querySelector(`[name="${name}"]`);
+    if (!value.trim()) {
+      const messages = {
+        name: 'Digite seu nome completo.',
+        email: 'Digite o seu e-mail.',
+        subject: 'Digite o assunto que deseja tratar.',
+        message: 'Por favor, escreva a sua mensagem.'
+      };
+      showError(field, messages[name] || 'Este campo é obrigatório.');
+      if (!firstError) firstError = field;
+      hasError = true;
+    } else if (name === 'email' && !/^\S+@\S+\.\S+$/.test(value)) {
+      showError(field, 'Ops! Parece que o e-mail está inválido.');
+      if (!firstError) firstError = field;
+      hasError = true;
     }
-    error.textContent = msg;
-    field.style.borderColor = '#ff4d4f';
-  };
+  }
 
-  const clearErrors = () => {
-    form.querySelectorAll('.error-message').forEach(e => e.remove());
-    form.querySelectorAll('input, textarea').forEach(f => f.style.borderColor = '');
-  };
+  if (hasError) {
+    firstError.focus();
+    // Como tem erro, esconder o sucesso e mostrar o botão de enviar de volta
+    submitButton.style.display = 'inline-block';
+    successMessage.style.display = 'none';
+    return;
+  }
 
-  const showSubmitButton = () => {
-    submitButton.disabled = false;
-    submitButton.classList.remove('btn-hidden');
-  };
+  submitButton.disabled = true;
 
-  const hideSubmitButton = () => {
-    submitButton.disabled = true;
-    submitButton.classList.add('btn-hidden');
-  };
-
-  form.querySelectorAll('input, textarea').forEach(field => {
-    field.addEventListener('input', () => {
-      const error = field.parentNode.querySelector('.error-message');
-      if (error) error.remove();
-      field.style.borderColor = '';
-      if (successMessage.style.display === 'block') {
-        successMessage.style.display = 'none';
-        showSubmitButton();
-      }
-    });
-  });
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    if (submitButton.disabled) return;
-
-    clearErrors();
-
-    const formData = new FormData(form);
-    let firstError = null;
-    let hasError = false;
-
-    for (const [name, value] of formData.entries()) {
-      const field = form.querySelector(`[name="${name}"]`);
-      if (!value.trim()) {
-        const messages = {
-          name: 'Digite seu nome completo.',
-          email: 'Digite o seu e-mail.',
-          subject: 'Digite o assunto que deseja tratar.',
-          message: 'Por favor, escreva a sua mensagem.'
-        };
-        showError(field, messages[name] || 'Este campo é obrigatório.');
-        if (!firstError) firstError = field;
-        hasError = true;
-      } else if (name === 'email' && !/^\S+@\S+\.\S+$/.test(value)) {
-        showError(field, 'Ops! Parece que o e-mail está inválido.');
-        if (!firstError) firstError = field;
-        hasError = true;
-      }
-    }
-
-    if (hasError) {
-      firstError.focus();
+  fetch(form.action, {
+    method: form.method,
+    body: formData
+  }).then(response => {
+    if (!response.ok) {
+      submitButton.disabled = false;
+      // Em caso de erro na requisição, mostrar o botão enviar e esconder sucesso
+      submitButton.style.display = 'inline-block';
+      successMessage.style.display = 'none';
       return;
     }
+    form.reset();
 
-    hideSubmitButton();
-
-    fetch(form.action, {
-      method: form.method,
-      body: formData
-    }).then(response => {
-      if (!response.ok) {
-        showSubmitButton();
-        return;
-      }
-      form.reset();
-      successMessage.style.display = 'block';
-
-      setTimeout(() => {
-        successMessage.style.display = 'none';
-        showSubmitButton();
-      }, 1700);
-    }).catch(() => {
-      showSubmitButton();
-    });
+    // Aqui o sucesso já está visível desde o início, só esperar para resetar
+    setTimeout(resetSuccess, 1700);
+  }).catch(() => {
+    submitButton.disabled = false;
+    submitButton.style.display = 'inline-block';
+    successMessage.style.display = 'none';
   });
-}
+});
+
 
 
 
