@@ -72,11 +72,11 @@ function initLazyLoading() {
   }
 }
 
+
 function initContactForm() {
   const form = document.getElementById('formulario-contato');
   const submitButton = document.getElementById('btn-submit');
   const successMessage = document.getElementById('success-message');
-
   if (!form || !submitButton || !successMessage) return;
 
   const showError = (field, msg) => {
@@ -88,7 +88,7 @@ function initContactForm() {
         color: '#ff4d4f',
         fontSize: '0.85em',
         marginTop: '4px',
-        fontWeight: '500',
+        fontWeight: '500'
       });
       field.parentNode.appendChild(error);
     }
@@ -116,7 +116,7 @@ function initContactForm() {
     });
   });
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (submitButton.disabled) return;
 
@@ -133,7 +133,7 @@ function initContactForm() {
           name: 'Digite seu nome completo.',
           email: 'Digite o seu e-mail.',
           subject: 'Digite o assunto que deseja tratar.',
-          message: 'Por favor, escreva a sua mensagem.',
+          message: 'Por favor, escreva a sua mensagem.'
         };
         showError(field, messages[name] || 'Este campo é obrigatório.');
         if (!firstError) firstError = field;
@@ -152,32 +152,36 @@ function initContactForm() {
 
     submitButton.disabled = true;
 
-    fetch(form.action, {
-      method: form.method,
-      body: formData
-    }).then(response => {
-      if (!response.ok) {
-        submitButton.disabled = false;
-        return;
-      }
-
-      // Mostra botão sucesso e esconde o enviar
+    try {
+      // Logo ao enviar, já mostra o botão de sucesso (forçando aparecer no mobile)
       submitButton.style.display = 'none';
       successMessage.style.display = 'inline-block';
 
-      // Limpa formulário após mostrar o sucesso
-      requestAnimationFrame(() => form.reset());
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData
+      });
 
-      // Depois de 1700ms, reseta o estado dos botões
+      if (!response.ok) {
+        submitButton.disabled = false;
+        resetSuccess();
+        return;
+      }
+
+      form.reset();
+
       setTimeout(() => {
         resetSuccess();
       }, 1700);
 
-    }).catch(() => {
+    } catch {
       submitButton.disabled = false;
-    });
+      resetSuccess();
+    }
   });
 }
+
+
 function toggleTheme() {
   if (document.body.getAttribute('data-theme') === 'dark') {
     document.body.removeAttribute('data-theme');
