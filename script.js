@@ -15,17 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
       body: formData
     }).finally(() => {
       form.reset();
-      mostrarSucesso();
+      submitButton.style.display = 'none';
+
+      // ✅ Adiciona a classe .show que já está configurada no seu CSS
+      successContainer.classList.add('show');
+
+      setTimeout(() => {
+        successContainer.classList.remove('show');
+        submitButton.style.display = 'inline-block';
+      }, 1700);
     });
   });
-
-  function mostrarSucesso() {
-    submitButton.style.display = 'none';
-    successContainer.style.display = 'block';
-
-    setTimeout(() => {
-      successContainer.style.display = 'none';
-      submitButton.style.display = 'inline-block';
-    }, 1700);
-  }
 });
