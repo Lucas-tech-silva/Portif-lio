@@ -19,10 +19,20 @@ function initNavigation() {
   }
 
   burger?.addEventListener('click', toggleNav);
+
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       if (navLinks.classList.contains('nav-active')) toggleNav();
     });
+  });
+  
+  document.addEventListener('click', (event) => {
+    const isClickInsideNav = navLinks.contains(event.target);
+    const isClickOnBurger = burger.contains(event.target);
+
+    if (!isClickInsideNav && !isClickOnBurger && navLinks.classList.contains('nav-active')) {
+      toggleNav();
+    }
   });
 
   window.addEventListener('scroll', () => {
