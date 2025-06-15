@@ -162,13 +162,13 @@ p {
   font-size: 0.875rem;
 }
 
-/* 
+
 #success-message {
   display: none;
   margin-top: 0.8rem;
-} */
+}
 
-/* #success-message.show {
+#success-message.show {
   display: block !important;
 }
 
@@ -180,32 +180,6 @@ p {
   max-width: 300px;
   font-size: 1.1rem;
   pointer-events: none;
-} */
-
-
-#success-message {
-  display: none;
-  margin-top: 0.8rem;
-  padding: 12px;
-  background-color: #d4edda;
-  color: #155724;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  width: 100%;
-  max-width: 300px;
-  box-sizing: border-box;
-  text-align: center;
-  pointer-events: none;
-  user-select: none;
-  transition: opacity 0.3s ease;
-  opacity: 0;
-  position: relative;
-  z-index: 9999;
-}
-
-#success-message.show {
-  display: block !important;
-  opacity: 1;
 }
 
 .navbar {
