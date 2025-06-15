@@ -95,7 +95,8 @@ function initContactForm() {
   }
 
   function clearErrors() {
-    form.querySelectorAll('.error-message').forEach(err => err.remove());
+    const errors = form.querySelectorAll('.error-message');
+    errors.forEach(err => err.remove());
   }
 
   form.querySelectorAll('input, textarea').forEach(field => {
@@ -104,71 +105,76 @@ function initContactForm() {
       if (error) error.remove();
       field.style.borderColor = '';
 
-      if (successMessage.style.display === 'block') {
-        successMessage.style.display = 'none';
+      if (successMessage.classList.contains('show')) {
+        successMessage.classList.remove('show');
         submitButton.style.display = 'inline-block';
         submitButton.disabled = false;
       }
     });
   });
 
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
 
-  if (submitButton.disabled) return;
+    if (submitButton.disabled) return;
 
-  clearErrors();
+    clearErrors();
 
-  const formData = new FormData(form);
-  let firstErrorField = null;
-  let hasError = false;
+    const formData = new FormData(form);
+    let firstErrorField = null;
+    let hasError = false;
 
-  for (const [name, value] of formData.entries()) {
-    const field = form.querySelector(`[name="${name}"]`);
-    if (!value.trim()) {
-      hasError = true;
-      let message = 'Este campo é obrigatório.';
-      if (name === 'name') message = 'Digite seu nome completo.';
-      else if (name === 'email') message = 'Digite o seu e-mail.';
-      else if (name === 'subject') message = 'Digite o assunto que deseja tratar.';
-      else if (name === 'message') message = 'Por favor, escreva a sua mensagem.';
-      createErrorMessage(field, message);
-      field.style.borderColor = '#ff4d4f';
-      if (!firstErrorField) firstErrorField = field;
-    } else if (name === 'email' && !/^\S+@\S+\.\S+$/.test(value)) {
-      hasError = true;
-      createErrorMessage(field, 'Ops! Parece que o e-mail está inválido.');
-      field.style.borderColor = '#ff4d4f';
-      if (!firstErrorField) firstErrorField = field;
+    for (const [name, value] of formData.entries()) {
+      const field = form.querySelector(`[name="${name}"]`);
+      if (!value.trim()) {
+        hasError = true;
+        let message = 'Este campo é obrigatório.';
+        if (name === 'name') message = 'Digite seu nome completo.';
+        else if (name === 'email') message = 'Digite o seu e-mail.';
+        else if (name === 'subject') message = 'Digite o assunto que deseja tratar.';
+        else if (name === 'message') message = 'Por favor, escreva a sua mensagem.';
+        createErrorMessage(field, message);
+        field.style.borderColor = '#ff4d4f';
+        if (!firstErrorField) firstErrorField = field;
+      } else if (name === 'email' && !/^\S+@\S+\.\S+$/.test(value)) {
+        hasError = true;
+        createErrorMessage(field, 'Ops! Parece que o e-mail está inválido.');
+        field.style.borderColor = '#ff4d4f';
+        if (!firstErrorField) firstErrorField = field;
+      }
     }
-  }
 
-  if (hasError) {
-    firstErrorField.focus();
-    return;
-  }
+    if (hasError) {
+      firstErrorField.focus();
+      return;
+    }
 
-  submitButton.disabled = true;
+    submitButton.disabled = true;
 
-  fetch(form.action, {
-    method: form.method,
-    body: formData
-  }).then(response => {
-    if (!response.ok) return;
+    fetch(form.action, {
+      method: form.method,
+      body: formData
+    }).then(response => {
+      if (!response.ok) {
+        submitButton.disabled = false;
+        return;
+      }
 
-    form.reset();
-    submitButton.style.display = 'none';
-    successMessage.classList.add('show');
+      form.reset();
+      submitButton.style.display = 'none';
+      successMessage.classList.add('show');
 
-    setTimeout(() => {
-      successMessage.classList.remove('show');
-      submitButton.style.display = 'inline-block';
+      setTimeout(() => {
+        successMessage.classList.remove('show');
+        submitButton.style.display = 'inline-block';
+        submitButton.disabled = false;
+      }, 1700);
+    }).catch(() => {
       submitButton.disabled = false;
-    }, 1700);
-  }).catch(() => {
-    submitButton.disabled = false;
+    });
   });
-});
+}
+
 
 function toggleTheme() {
   if (document.body.getAttribute('data-theme') === 'dark') {
