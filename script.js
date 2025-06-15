@@ -160,17 +160,24 @@ function initContactForm() {
         submitButton.disabled = false;
         return;
       }
-      form.reset();
-      submitButton.style.display = 'none';
-      successMessage.style.display = 'block';
 
-      setTimeout(resetSuccess, 1700);
+      // Mostra botão sucesso e esconde o enviar
+      submitButton.style.display = 'none';
+      successMessage.style.display = 'inline-block';
+
+      // Limpa formulário após mostrar o sucesso
+      requestAnimationFrame(() => form.reset());
+
+      // Depois de 1700ms, reseta o estado dos botões
+      setTimeout(() => {
+        resetSuccess();
+      }, 1700);
+
     }).catch(() => {
       submitButton.disabled = false;
     });
   });
 }
-
 function toggleTheme() {
   if (document.body.getAttribute('data-theme') === 'dark') {
     document.body.removeAttribute('data-theme');
