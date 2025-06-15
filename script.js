@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('formulario-contato');
   const submitButton = document.getElementById('btn-submit');
-  const successMessageContainer = document.getElementById('success-message');
-  const successButton = successMessageContainer.querySelector('.btn-success');
+  const successContainer = document.getElementById('success-message');
 
-  if (!form || !submitButton || !successMessageContainer || !successButton) return;
+  if (!form || !submitButton || !successContainer) return;
 
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
     const formData = new FormData(form);
 
@@ -15,18 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
       method: form.method,
       body: formData
     }).finally(() => {
-      form.reset(); // Limpa o formulário
-
-      // Garante que o botão realmente apareça:
-      successMessageContainer.style.display = 'block'; // Exibe a div
-      successButton.style.display = 'inline-flex'; // Exibe o botão dentro dela
-
-      submitButton.style.display = 'none'; // Esconde o botão enviar
-
-      setTimeout(() => {
-        successMessageContainer.style.display = 'none'; // Esconde tudo de novo
-        submitButton.style.display = 'inline-block'; // Mostra o botão enviar novamente
-      }, 1700);
+      form.reset();
+      mostrarSucesso();
     });
   });
+
+  function mostrarSucesso() {
+    submitButton.style.display = 'none';
+    successContainer.style.display = 'block';
+
+    setTimeout(() => {
+      successContainer.style.display = 'none';
+      submitButton.style.display = 'inline-block';
+    }, 1700);
+  }
 });
