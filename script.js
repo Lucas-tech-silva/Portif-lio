@@ -112,63 +112,63 @@ function initContactForm() {
     });
   });
 
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    if (submitButton.disabled) return;
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
 
-    clearErrors();
+  if (submitButton.disabled) return;
 
-    const formData = new FormData(form);
-    let firstErrorField = null;
-    let hasError = false;
+  clearErrors();
 
-    for (const [name, value] of formData.entries()) {
-      const field = form.querySelector(`[name="${name}"]`);
-      if (!value.trim()) {
-        hasError = true;
-        let message = 'Este campo é obrigatório.';
-        if (name === 'name') message = 'Digite seu nome completo.';
-        else if (name === 'email') message = 'Digite o seu e-mail.';
-        else if (name === 'subject') message = 'Digite o assunto que deseja tratar.';
-        else if (name === 'message') message = 'Por favor, escreva a sua mensagem.';
-        createErrorMessage(field, message);
-        field.style.borderColor = '#ff4d4f';
-        if (!firstErrorField) firstErrorField = field;
-      } else if (name === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-        hasError = true;
-        createErrorMessage(field, 'Ops! Parece que o e-mail está inválido.');
-        field.style.borderColor = '#ff4d4f';
-        if (!firstErrorField) firstErrorField = field;
-      }
+  const formData = new FormData(form);
+  let firstErrorField = null;
+  let hasError = false;
+
+  for (const [name, value] of formData.entries()) {
+    const field = form.querySelector(`[name="${name}"]`);
+    if (!value.trim()) {
+      hasError = true;
+      let message = 'Este campo é obrigatório.';
+      if (name === 'name') message = 'Digite seu nome completo.';
+      else if (name === 'email') message = 'Digite o seu e-mail.';
+      else if (name === 'subject') message = 'Digite o assunto que deseja tratar.';
+      else if (name === 'message') message = 'Por favor, escreva a sua mensagem.';
+      createErrorMessage(field, message);
+      field.style.borderColor = '#ff4d4f';
+      if (!firstErrorField) firstErrorField = field;
+    } else if (name === 'email' && !/^\S+@\S+\.\S+$/.test(value)) {
+      hasError = true;
+      createErrorMessage(field, 'Ops! Parece que o e-mail está inválido.');
+      field.style.borderColor = '#ff4d4f';
+      if (!firstErrorField) firstErrorField = field;
     }
+  }
 
-    if (hasError) {
-      firstErrorField.focus();
-      return;
-    }
+  if (hasError) {
+    firstErrorField.focus();
+    return;
+  }
 
-    submitButton.disabled = true;
+  submitButton.disabled = true;
 
-    fetch(form.action, {
-      method: form.method,
-      body: formData
-    }).then(response => {
-      if (!response.ok) return;
+  fetch(form.action, {
+    method: form.method,
+    body: formData
+  }).then(response => {
+    if (!response.ok) return;
 
-      form.reset();
-      submitButton.style.display = 'none';
-      successMessage.style.display = 'block';
+    form.reset();
+    submitButton.style.display = 'none';
+    successMessage.classList.add('show');
 
-      setTimeout(() => {
-        successMessage.style.display = 'none';
-        submitButton.style.display = 'inline-block';
-        submitButton.disabled = false;
-      }, 1700);
-    }).catch(() => {
+    setTimeout(() => {
+      successMessage.classList.remove('show');
+      submitButton.style.display = 'inline-block';
       submitButton.disabled = false;
-    });
+    }, 1700);
+  }).catch(() => {
+    submitButton.disabled = false;
   });
-}
+});
 
 function toggleTheme() {
   if (document.body.getAttribute('data-theme') === 'dark') {
