@@ -117,69 +117,66 @@ function initContactForm() {
   });
 
   form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (submitButton.disabled) return;
+  e.preventDefault();
+  if (submitButton.disabled) return;
 
-    clearErrors();
+  clearErrors();
 
-    const formData = new FormData(form);
-    let firstError = null;
-    let hasError = false;
+  const formData = new FormData(form);
+  let firstError = null;
+  let hasError = false;
 
-    for (const [name, value] of formData.entries()) {
-      const field = form.querySelector(`[name="${name}"]`);
-      if (!value.trim()) {
-        const messages = {
-          name: 'Digite seu nome completo.',
-          email: 'Digite o seu e-mail.',
-          subject: 'Digite o assunto que deseja tratar.',
-          message: 'Por favor, escreva a sua mensagem.'
-        };
-        showError(field, messages[name] || 'Este campo é obrigatório.');
-        if (!firstError) firstError = field;
-        hasError = true;
-      } else if (name === 'email' && !/^\S+@\S+\.\S+$/.test(value)) {
-        showError(field, 'Ops! Parece que o e-mail está inválido.');
-        if (!firstError) firstError = field;
-        hasError = true;
-      }
+  for (const [name, value] of formData.entries()) {
+    const field = form.querySelector(`[name="${name}"]`);
+    if (!value.trim()) {
+      const messages = {
+        name: 'Digite seu nome completo.',
+        email: 'Digite o seu e-mail.',
+        subject: 'Digite o assunto que deseja tratar.',
+        message: 'Por favor, escreva a sua mensagem.'
+      };
+      showError(field, messages[name] || 'Este campo é obrigatório.');
+      if (!firstError) firstError = field;
+      hasError = true;
+    } else if (name === 'email' && !/^\S+@\S+\.\S+$/.test(value)) {
+      showError(field, 'Ops! Parece que o e-mail está inválido.');
+      if (!firstError) firstError = field;
+      hasError = true;
     }
+  }
 
-    if (hasError) {
-      firstError.focus();
+  if (hasError) {
+    firstError.focus();
+    return;
+  }
+
+  submitButton.disabled = true;
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData
+    });
+
+    if (!response.ok) {
+      submitButton.disabled = false;
+      resetSuccess();
       return;
     }
 
-    submitButton.disabled = true;
+    form.reset();                // Limpa o formulário aqui!
+    submitButton.style.display = 'none';
+    successMessage.style.display = 'inline-block';
 
-    try {
-      // Logo ao enviar, já mostra o botão de sucesso (forçando aparecer no mobile)
-      submitButton.style.display = 'none';
-      successMessage.style.display = 'inline-block';
-
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: formData
-      });
-
-      if (!response.ok) {
-        submitButton.disabled = false;
-        resetSuccess();
-        return;
-      }
-
-      form.reset();
-
-      setTimeout(() => {
-        resetSuccess();
-      }, 1700);
-
-    } catch {
-      submitButton.disabled = false;
+    setTimeout(() => {
       resetSuccess();
-    }
-  });
-}
+    }, 1700);
+
+  } catch {
+    submitButton.disabled = false;
+    resetSuccess();
+  }
+});
 
 
 function toggleTheme() {
