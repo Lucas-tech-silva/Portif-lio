@@ -74,7 +74,6 @@ function initLazyLoading() {
 }
 
 
-
 function initContactForm() {
   const form = document.getElementById('formulario-contato');
   const submitButton = document.getElementById('btn-submit');
@@ -105,6 +104,7 @@ function initContactForm() {
   };
 
   const resetSuccess = () => {
+    console.log('resetSuccess chamado');
     successMessage.style.display = 'none';
     submitButton.style.display = 'inline-block';
     submitButton.disabled = false;
@@ -166,7 +166,11 @@ function initContactForm() {
       form.reset();
       submitButton.style.display = 'none';
       successMessage.style.display = 'block';
-      setTimeout(resetSuccess, 1700);
+
+      // Forçar reset success para aparecer sempre depois de 1.7s
+      setTimeout(() => {
+        resetSuccess();
+      }, 1700);
     }).catch(() => {
       submitButton.disabled = false;
     });
@@ -174,8 +178,6 @@ function initContactForm() {
 }
 
 document.addEventListener('DOMContentLoaded', initContactForm);
-
-
 
 
 
