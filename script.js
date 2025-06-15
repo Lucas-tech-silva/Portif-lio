@@ -103,8 +103,10 @@ function initContactForm() {
 
   const resetFormState = () => {
     successMessage.style.display = 'none';
-    submitButton.style.display = 'inline-block';
     submitButton.disabled = false;
+    submitButton.style.visibility = 'visible';
+    submitButton.style.opacity = '1';
+    submitButton.style.pointerEvents = 'auto';
   };
 
   form.querySelectorAll('input, textarea').forEach(field => {
@@ -153,6 +155,9 @@ function initContactForm() {
     }
 
     submitButton.disabled = true;
+    submitButton.style.visibility = 'hidden';
+    submitButton.style.opacity = '0';
+    submitButton.style.pointerEvents = 'none';
 
     fetch(form.action, {
       method: form.method,
@@ -160,20 +165,23 @@ function initContactForm() {
     }).then(response => {
       if (!response.ok) {
         submitButton.disabled = false;
+        resetFormState();
         return;
       }
       form.reset();
-      submitButton.style.display = 'none';
       successMessage.style.display = 'block';
 
       setTimeout(() => {
+        successMessage.style.display = 'none';
         resetFormState();
       }, 1700);
     }).catch(() => {
       submitButton.disabled = false;
+      resetFormState();
     });
   });
 }
+
 
 
 
