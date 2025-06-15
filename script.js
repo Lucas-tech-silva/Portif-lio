@@ -121,7 +121,7 @@ function initContactForm() {
         if (name === 'name') message = 'Digite seu nome completo.';
         else if (name === 'email') message = 'Digite o seu e-mail.';
         else if (name === 'subject') message = 'Digite o assunto que deseja tratar.';
-        else if (name === 'message') message = 'Por favor, escreva a sua mensagem.';
+        else if (name === 'message') message = 'Por favor, Escreva a sua mensagem.';
         createErrorMessage(field, message);
         field.style.borderColor = '#ff4d4f';
         if (!firstErrorField) firstErrorField = field;
@@ -144,7 +144,7 @@ function initContactForm() {
       method: form.method,
       body: formData
     }).then(response => {
-      if (!response.ok) return;
+      if (!response.ok) return; // Não mostra erro nenhum!
 
       form.reset();
       submitButton.style.display = 'none';
@@ -155,9 +155,8 @@ function initContactForm() {
         submitButton.style.display = 'inline-block';
         submitButton.disabled = false;
       }, 1700);
-
     }).catch(() => {
-      submitButton.disabled = false; // Só reativa o botão, sem mensagens
+      submitButton.disabled = false; // Também sem mensagem
     });
   });
 }
@@ -185,6 +184,7 @@ window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
     if (scrollY >= (sectionTop - 200)) {
       current = section.getAttribute('id');
     }
