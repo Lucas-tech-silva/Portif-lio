@@ -101,8 +101,8 @@ function initContactForm() {
     form.querySelectorAll('input, textarea').forEach(f => f.style.borderColor = '');
   };
 
-  const resetSuccess = () => {
-    successMessage.classList.remove('show');
+  const resetFormState = () => {
+    successMessage.style.display = 'none';
     submitButton.style.display = 'inline-block';
     submitButton.disabled = false;
   };
@@ -112,7 +112,9 @@ function initContactForm() {
       const error = field.parentNode.querySelector('.error-message');
       if (error) error.remove();
       field.style.borderColor = '';
-      if (successMessage.classList.contains('show')) resetSuccess();
+      if (successMessage.style.display === 'block') {
+        resetFormState();
+      }
     });
   });
 
@@ -162,13 +164,17 @@ function initContactForm() {
       }
       form.reset();
       submitButton.style.display = 'none';
-      successMessage.classList.add('show');
-      setTimeout(resetSuccess, 1700);
+      successMessage.style.display = 'block';
+
+      setTimeout(() => {
+        resetFormState();
+      }, 1700);
     }).catch(() => {
       submitButton.disabled = false;
     });
   });
 }
+
 
 
 function toggleTheme() {
