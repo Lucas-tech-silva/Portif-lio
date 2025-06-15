@@ -77,75 +77,76 @@ function initContactForm() {
   const form = document.getElementById('formulario-contato');
   const submitButton = document.getElementById('btn-submit');
   const successMessage = document.getElementById('success-message');
-
   if (!form || !submitButton || !successMessage) return;
 
-  function createErrorMessage(field, message) {
+  const showError = (field, msg) => {
     let error = field.parentNode.querySelector('.error-message');
     if (!error) {
       error = document.createElement('div');
       error.className = 'error-message';
-      error.style.color = '#ff4d4f';
-      error.style.fontSize = '0.85em';
-      error.style.marginTop = '4px';
-      error.style.fontWeight = '500';
+      Object.assign(error.style, {
+        color: '#ff4d4f',
+        fontSize: '0.85em',
+        marginTop: '4px',
+        fontWeight: '500'
+      });
       field.parentNode.appendChild(error);
     }
-    error.textContent = message;
-  }
+    error.textContent = msg;
+    field.style.borderColor = '#ff4d4f';
+  };
 
-  function clearErrors() {
-    const errors = form.querySelectorAll('.error-message');
-    errors.forEach(err => err.remove());
-  }
+  const clearErrors = () => {
+    form.querySelectorAll('.error-message').forEach(e => e.remove());
+    form.querySelectorAll('input, textarea').forEach(f => f.style.borderColor = '');
+  };
+
+  const resetSuccess = () => {
+    successMessage.classList.remove('show');
+    submitButton.style.display = 'inline-block';
+    submitButton.disabled = false;
+  };
 
   form.querySelectorAll('input, textarea').forEach(field => {
     field.addEventListener('input', () => {
       const error = field.parentNode.querySelector('.error-message');
       if (error) error.remove();
       field.style.borderColor = '';
-
-      if (successMessage.classList.contains('show')) {
-        successMessage.classList.remove('show');
-        submitButton.style.display = 'inline-block';
-        submitButton.disabled = false;
-      }
+      if (successMessage.classList.contains('show')) resetSuccess();
     });
   });
 
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
-
+  form.addEventListener('submit', e => {
+    e.preventDefault();
     if (submitButton.disabled) return;
 
     clearErrors();
 
     const formData = new FormData(form);
-    let firstErrorField = null;
+    let firstError = null;
     let hasError = false;
 
     for (const [name, value] of formData.entries()) {
       const field = form.querySelector(`[name="${name}"]`);
       if (!value.trim()) {
+        const messages = {
+          name: 'Digite seu nome completo.',
+          email: 'Digite o seu e-mail.',
+          subject: 'Digite o assunto que deseja tratar.',
+          message: 'Por favor, escreva a sua mensagem.'
+        };
+        showError(field, messages[name] || 'Este campo é obrigatório.');
+        if (!firstError) firstError = field;
         hasError = true;
-        let message = 'Este campo é obrigatório.';
-        if (name === 'name') message = 'Digite seu nome completo.';
-        else if (name === 'email') message = 'Digite o seu e-mail.';
-        else if (name === 'subject') message = 'Digite o assunto que deseja tratar.';
-        else if (name === 'message') message = 'Por favor, escreva a sua mensagem.';
-        createErrorMessage(field, message);
-        field.style.borderColor = '#ff4d4f';
-        if (!firstErrorField) firstErrorField = field;
       } else if (name === 'email' && !/^\S+@\S+\.\S+$/.test(value)) {
+        showError(field, 'Ops! Parece que o e-mail está inválido.');
+        if (!firstError) firstError = field;
         hasError = true;
-        createErrorMessage(field, 'Ops! Parece que o e-mail está inválido.');
-        field.style.borderColor = '#ff4d4f';
-        if (!firstErrorField) firstErrorField = field;
       }
     }
 
     if (hasError) {
-      firstErrorField.focus();
+      firstError.focus();
       return;
     }
 
@@ -159,16 +160,10 @@ function initContactForm() {
         submitButton.disabled = false;
         return;
       }
-
       form.reset();
       submitButton.style.display = 'none';
       successMessage.classList.add('show');
-
-      setTimeout(() => {
-        successMessage.classList.remove('show');
-        submitButton.style.display = 'inline-block';
-        submitButton.disabled = false;
-      }, 1700);
+      setTimeout(resetSuccess, 1700);
     }).catch(() => {
       submitButton.disabled = false;
     });
