@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   // se quiser, pode chamar suas outras funções aqui
