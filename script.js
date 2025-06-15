@@ -101,12 +101,14 @@ function initContactForm() {
     form.querySelectorAll('input, textarea').forEach(f => f.style.borderColor = '');
   };
 
-  const resetFormState = () => {
-    successMessage.style.display = 'none';
+  const showSubmitButton = () => {
     submitButton.disabled = false;
-    submitButton.style.visibility = 'visible';
-    submitButton.style.opacity = '1';
-    submitButton.style.pointerEvents = 'auto';
+    submitButton.classList.remove('btn-hidden');
+  };
+
+  const hideSubmitButton = () => {
+    submitButton.disabled = true;
+    submitButton.classList.add('btn-hidden');
   };
 
   form.querySelectorAll('input, textarea').forEach(field => {
@@ -115,7 +117,8 @@ function initContactForm() {
       if (error) error.remove();
       field.style.borderColor = '';
       if (successMessage.style.display === 'block') {
-        resetFormState();
+        successMessage.style.display = 'none';
+        showSubmitButton();
       }
     });
   });
@@ -154,18 +157,14 @@ function initContactForm() {
       return;
     }
 
-    submitButton.disabled = true;
-    submitButton.style.visibility = 'hidden';
-    submitButton.style.opacity = '0';
-    submitButton.style.pointerEvents = 'none';
+    hideSubmitButton();
 
     fetch(form.action, {
       method: form.method,
       body: formData
     }).then(response => {
       if (!response.ok) {
-        submitButton.disabled = false;
-        resetFormState();
+        showSubmitButton();
         return;
       }
       form.reset();
@@ -173,14 +172,14 @@ function initContactForm() {
 
       setTimeout(() => {
         successMessage.style.display = 'none';
-        resetFormState();
+        showSubmitButton();
       }, 1700);
     }).catch(() => {
-      submitButton.disabled = false;
-      resetFormState();
+      showSubmitButton();
     });
   });
 }
+
 
 
 
