@@ -15,11 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
       body: formData
     }).finally(() => {
       form.reset(); // Limpa o formulário
+
+      // Exibe o botão de sucesso
+      successMessage.style.display = 'flex'; // <<<<< ALTEREI PARA 'flex' para garantir exibição no mobile
+      successMessage.style.justifyContent = 'center'; // centraliza se necessário
+      successMessage.style.alignItems = 'center'; // centraliza se necessário
       submitButton.style.display = 'none'; // Esconde o botão enviar
-      successMessage.style.display = 'block'; // Mostra o botão de sucesso
 
       setTimeout(() => {
-        successMessage.style.display = 'none'; // Esconde o botão de sucesso
+        successMessage.style.display = 'none'; // Esconde o botão de sucesso depois de 1.7s
         submitButton.style.display = 'inline-block'; // Mostra o botão enviar novamente
       }, 1700);
     });
