@@ -121,7 +121,7 @@ function initContactForm() {
         if (name === 'name') message = 'Digite seu nome completo.';
         else if (name === 'email') message = 'Digite o seu e-mail.';
         else if (name === 'subject') message = 'Digite o assunto que deseja tratar.';
-        else if (name === 'message') message = 'Por favor, Escreva a sua mensagem.';
+        else if (name === 'message') message = 'Por favor, escreva a sua mensagem.';
         createErrorMessage(field, message);
         field.style.borderColor = '#ff4d4f';
         if (!firstErrorField) firstErrorField = field;
@@ -144,7 +144,7 @@ function initContactForm() {
       method: form.method,
       body: formData
     }).then(response => {
-      if (!response.ok) throw new Error('Erro no envio.');
+      if (!response.ok) return;
 
       form.reset();
       submitButton.style.display = 'none';
@@ -157,13 +157,10 @@ function initContactForm() {
       }, 1700);
 
     }).catch(() => {
-      alert('Erro ao enviar. Tente novamente.');
-      submitButton.disabled = false;
+      submitButton.disabled = false; // Só reativa o botão, sem mensagens
     });
   });
 }
-
-window.addEventListener('DOMContentLoaded', initContactForm);
 
 function toggleTheme() {
   if (document.body.getAttribute('data-theme') === 'dark') {
@@ -188,7 +185,6 @@ window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
     if (scrollY >= (sectionTop - 200)) {
       current = section.getAttribute('id');
     }
