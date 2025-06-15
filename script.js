@@ -116,15 +116,11 @@ function initContactForm() {
     });
   });
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     if (submitButton.disabled) return;
 
     clearErrors();
-
-    // Exibir botão sucesso e esconder botão enviar ao clicar
-    submitButton.style.display = 'none';
-    successMessage.style.display = 'block';
 
     const formData = new FormData(form);
     let firstError = null;
@@ -151,31 +147,30 @@ function initContactForm() {
 
     if (hasError) {
       firstError.focus();
-      // Mostrar botão enviar e esconder sucesso se houver erro
-      submitButton.style.display = 'inline-block';
-      successMessage.style.display = 'none';
       return;
     }
 
     submitButton.disabled = true;
 
-    fetch(form.action, {
-      method: form.method,
-      body: formData
-    }).then(response => {
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData
+      });
+
       if (!response.ok) {
         submitButton.disabled = false;
-        submitButton.style.display = 'inline-block';
-        successMessage.style.display = 'none';
         return;
       }
+
       form.reset();
+      submitButton.style.display = 'none';
+      successMessage.style.display = 'block';
+
       setTimeout(resetSuccess, 1700);
-    }).catch(() => {
+    } catch {
       submitButton.disabled = false;
-      submitButton.style.display = 'inline-block';
-      successMessage.style.display = 'none';
-    });
+    }
   });
 }
 
