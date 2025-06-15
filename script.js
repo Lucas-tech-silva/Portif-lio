@@ -52,6 +52,7 @@ function initScrollAnimations() {
       }
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
   animatedElements.forEach(el => observer.observe(el));
   elementsToAnimate.forEach(el => {
     if (!el.classList.contains('animate-on-scroll')) {
@@ -79,29 +80,87 @@ function initContactForm() {
 
   if (!form || !submitButton || !successMessage) return;
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+  function createErrorMessage(field, message) {
+    let error = field.parentNode.querySelector('.error-message');
+    if (!error) {
+      error = document.createElement('div');
+      error.className = 'error-message';
+      error.style.color = '#ff4d4f';
+      error.style.fontSize = '0.85em';
+      error.style.marginTop = '4px';
+      error.style.fontWeight = '500';
+      field.parentNode.appendChild(error);
+    }
+    error.textContent = message;
+  }
+
+  function clearErrors() {
+    form.querySelectorAll('.error-message').forEach(err => err.remove());
+  }
+
+  form.querySelectorAll('input, textarea').forEach(field => {
+    field.addEventListener('input', () => {
+      const error = field.parentNode.querySelector('.error-message');
+      if (error) error.remove();
+      field.style.borderColor = '';
+
+      if (successMessage.style.display === 'block') {
+        successMessage.style.display = 'none';
+        submitButton.style.display = 'inline-block';
+        submitButton.disabled = false;
+      }
+    });
+  });
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (submitButton.disabled) return;
+
+    clearErrors();
 
     const formData = new FormData(form);
+    let firstErrorField = null;
+    let hasError = false;
+
     for (const [name, value] of formData.entries()) {
-      if (!value.trim()) return;
-      if (name === 'email' && !/^\S+@\S+\.\S+$/.test(value)) return;
+      const field = form.querySelector(`[name="${name}"]`);
+      if (!value.trim()) {
+        hasError = true;
+        let message = 'Este campo é obrigatório.';
+        if (name === 'name') message = 'Digite seu nome completo.';
+        else if (name === 'email') message = 'Digite o seu e-mail.';
+        else if (name === 'subject') message = 'Digite o assunto que deseja tratar.';
+        else if (name === 'message') message = 'Por favor, escreva a sua mensagem.';
+        createErrorMessage(field, message);
+        field.style.borderColor = '#ff4d4f';
+        if (!firstErrorField) firstErrorField = field;
+      } else if (name === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+        hasError = true;
+        createErrorMessage(field, 'Ops! Parece que o e-mail está inválido.');
+        field.style.borderColor = '#ff4d4f';
+        if (!firstErrorField) firstErrorField = field;
+      }
+    }
+
+    if (hasError) {
+      firstErrorField.focus();
+      return;
     }
 
     submitButton.disabled = true;
 
     fetch(form.action, {
       method: form.method,
-      body: formData,
+      body: formData
     }).then(response => {
       if (!response.ok) return;
 
       form.reset();
       submitButton.style.display = 'none';
-      successMessage.classList.add('show');
+      successMessage.style.display = 'block';
 
       setTimeout(() => {
-        successMessage.classList.remove('show');
+        successMessage.style.display = 'none';
         submitButton.style.display = 'inline-block';
         submitButton.disabled = false;
       }, 1700);
@@ -134,7 +193,6 @@ window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
     if (scrollY >= (sectionTop - 200)) {
       current = section.getAttribute('id');
     }
