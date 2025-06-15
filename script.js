@@ -116,7 +116,7 @@ function initContactForm() {
     });
   });
 
-  form.addEventListener('submit', async e => {
+  form.addEventListener('submit', e => {
     e.preventDefault();
     if (submitButton.disabled) return;
 
@@ -152,25 +152,26 @@ function initContactForm() {
 
     submitButton.disabled = true;
 
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: formData
-      });
-
+    fetch(form.action, {
+      method: form.method,
+      body: formData
+    }).then(response => {
       if (!response.ok) {
         submitButton.disabled = false;
         return;
       }
-
       form.reset();
       submitButton.style.display = 'none';
       successMessage.style.display = 'block';
 
-      setTimeout(resetSuccess, 1700);
-    } catch {
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+        submitButton.style.display = 'inline-block';
+        submitButton.disabled = false;
+      }, 1700);
+    }).catch(() => {
       submitButton.disabled = false;
-    }
+    });
   });
 }
 
