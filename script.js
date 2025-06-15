@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('formulario-contato');
   const submitButton = document.getElementById('btn-submit');
-  const successMessage = document.getElementById('success-message');
+  const successMessageContainer = document.getElementById('success-message');
+  const successButton = successMessageContainer.querySelector('.btn-success');
 
-  if (!form || !submitButton || !successMessage) return;
+  if (!form || !submitButton || !successMessageContainer || !successButton) return;
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -16,14 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }).finally(() => {
       form.reset(); // Limpa o formulário
 
-      // Exibe o botão de sucesso
-      successMessage.style.display = 'flex'; // <<<<< ALTEREI PARA 'flex' para garantir exibição no mobile
-      successMessage.style.justifyContent = 'center'; // centraliza se necessário
-      successMessage.style.alignItems = 'center'; // centraliza se necessário
+      // Garante que o botão realmente apareça:
+      successMessageContainer.style.display = 'block'; // Exibe a div
+      successButton.style.display = 'inline-flex'; // Exibe o botão dentro dela
+
       submitButton.style.display = 'none'; // Esconde o botão enviar
 
       setTimeout(() => {
-        successMessage.style.display = 'none'; // Esconde o botão de sucesso depois de 1.7s
+        successMessageContainer.style.display = 'none'; // Esconde tudo de novo
         submitButton.style.display = 'inline-block'; // Mostra o botão enviar novamente
       }, 1700);
     });
