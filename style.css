@@ -162,11 +162,25 @@ p {
   font-size: 0.875rem;
 }
 
+
+#success-message {
+  display: none;
+  margin-top: 0.8rem;
+}
+
+#success-message.show {
+  display: block !important;
+}
+
 .btn-success {
   background: var(--success);
   color: white;
+  border-radius: 12px;
+  width: 204px;
+  max-width: 300px;
+  font-size: 1.1rem;
+  pointer-events: none;
 }
-
 
 .navbar {
   display: flex;
@@ -233,9 +247,9 @@ p {
   justify-content: center;
   align-items: center;
   background: transparent;
-  border: white;
+  border: none;
   cursor: pointer;
-  z-index: 1002
+  z-index: 1002;
 }
 
 .burger div {
@@ -1294,10 +1308,6 @@ strong:hover {
   .navbar {
     padding: 0.8rem 3%;
   }
-
-  .nav-links {
-    width: 60%;
-  }
 }
 
 @media (max-width: 768px) {
@@ -1340,7 +1350,8 @@ strong:hover {
     top: 0;
     right: 0;
     height: 100vh;
-    width: 70%;
+    width: 40%;
+    font-size: 1rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -1525,10 +1536,6 @@ strong:hover {
     flex-direction: row;
     gap: 0.5rem;
   }
-
-  .nav-links {
-    width: 55%;
-  }
 }
 
 @media (max-width: 480px) {
@@ -1549,17 +1556,17 @@ strong:hover {
     z-index: 1000;
   }
 
+   .nav-links {
+    width: 45%;
+   }
+
   .nav-right {
     position: relative;
     right: 20px;
   }
 
-  .theme-toggle-container {
-    margin-right: 1rem;
-  }
-
   .hero {
-    padding-top: 100px;
+    padding-top: 7rem;
   }
 
   .hero-text h1 {
@@ -1628,6 +1635,11 @@ strong:hover {
     padding: 0.8rem 1%;
   }
 
+   .nav-links {
+    width: 53%;
+    font-size: 0.95rem;
+   }
+
   .burger {
     display: flex;
     position: absolute;
@@ -1639,15 +1651,6 @@ strong:hover {
   .nav-right {
     position: relative;
     right: 25px;
-  }
-
-  .theme-toggle {
-    width: 32px;
-    height: 32px;
-  }
-
-  .theme-toggle i {
-    font-size: 12px;
   }
 
   .hero {
