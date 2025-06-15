@@ -150,11 +150,7 @@ function initContactForm() {
     }
 
     submitButton.disabled = true;
-
-    // Limpa o formulário imediatamente após o submit (antes do fetch)
     form.reset();
-
-    // Esconde botão enviar e mostra o de sucesso
     submitButton.style.display = 'none';
     successMessage.style.display = 'inline-block';
 
