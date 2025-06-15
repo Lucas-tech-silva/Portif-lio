@@ -75,11 +75,11 @@ function initLazyLoading() {
 
 
 
-
 function initContactForm() {
   const form = document.getElementById('formulario-contato');
   const submitButton = document.getElementById('btn-submit');
   const successMessage = document.getElementById('success-message');
+
   if (!form || !submitButton || !successMessage) return;
 
   const showError = (field, msg) => {
@@ -91,7 +91,7 @@ function initContactForm() {
         color: '#ff4d4f',
         fontSize: '0.85em',
         marginTop: '4px',
-        fontWeight: '500'
+        fontWeight: '500',
       });
       field.parentNode.appendChild(error);
     }
@@ -115,11 +115,11 @@ function initContactForm() {
       const error = field.parentNode.querySelector('.error-message');
       if (error) error.remove();
       field.style.borderColor = '';
-      if (successMessage.style.display === 'inline-block') resetSuccess();
+      if (successMessage.style.display !== 'none') resetSuccess();
     });
   });
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (submitButton.disabled) return;
 
@@ -136,7 +136,7 @@ function initContactForm() {
           name: 'Digite seu nome completo.',
           email: 'Digite o seu e-mail.',
           subject: 'Digite o assunto que deseja tratar.',
-          message: 'Por favor, escreva a sua mensagem.'
+          message: 'Por favor, escreva a sua mensagem.',
         };
         showError(field, messages[name] || 'Este campo é obrigatório.');
         if (!firstError) firstError = field;
@@ -165,13 +165,15 @@ function initContactForm() {
       }
       form.reset();
       submitButton.style.display = 'none';
-      successMessage.style.display = 'inline-block';
+      successMessage.style.display = 'block';
       setTimeout(resetSuccess, 1700);
     }).catch(() => {
       submitButton.disabled = false;
     });
   });
 }
+
+document.addEventListener('DOMContentLoaded', initContactForm);
 
 
 
