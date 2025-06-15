@@ -73,72 +73,92 @@ function initLazyLoading() {
   }
 }
 
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  if (submitButton.disabled) return;
 
-  clearErrors();
+function initContactForm() {
+  const form = document.getElementById('formulario-contato');
+  const submitButton = document.getElementById('btn-submit');
+  const successMessage = document.getElementById('success-message');
+  if (!form || !submitButton || !successMessage) return;
 
-  // Exibir botão de sucesso e esconder o botão de enviar assim que o usuário clicar
-  submitButton.style.display = 'none';
-  successMessage.style.display = 'block';
-
-  const formData = new FormData(form);
-  let firstError = null;
-  let hasError = false;
-
-  for (const [name, value] of formData.entries()) {
-    const field = form.querySelector(`[name="${name}"]`);
-    if (!value.trim()) {
-      const messages = {
-        name: 'Digite seu nome completo.',
-        email: 'Digite o seu e-mail.',
-        subject: 'Digite o assunto que deseja tratar.',
-        message: 'Por favor, escreva a sua mensagem.'
-      };
-      showError(field, messages[name] || 'Este campo é obrigatório.');
-      if (!firstError) firstError = field;
-      hasError = true;
-    } else if (name === 'email' && !/^\S+@\S+\.\S+$/.test(value)) {
-      showError(field, 'Ops! Parece que o e-mail está inválido.');
-      if (!firstError) firstError = field;
-      hasError = true;
+  const showError = (field, msg) => {
+    let error = field.parentNode.querySelector('.error-message');
+    if (!error) {
+      error = document.createElement('div');
+      error.className = 'error-message';
+      Object.assign(error.style, {
+        color: '#ff4d4f',
+        fontSize: '0.85em',
+        marginTop: '4px',
+        fontWeight: '500'
+      });
+      field.parentNode.appendChild(error);
     }
-  }
+    error.textContent = msg;
+    field.style.borderColor = '#ff4d4f';
+  };
 
-  if (hasError) {
-    firstError.focus();
-    // Como tem erro, esconder o sucesso e mostrar o botão de enviar de volta
-    submitButton.style.display = 'inline-block';
+  const clearErrors = () => {
+    form.querySelectorAll('.error-message').forEach(e => e.remove());
+    form.querySelectorAll('input, textarea').forEach(f => f.style.borderColor = '');
+  };
+
+  const resetSuccess = () => {
     successMessage.style.display = 'none';
-    return;
-  }
+    submitButton.style.display = 'inline-block';
+    submitButton.disabled = false;
+  };
 
-  submitButton.disabled = true;
+  form.querySelectorAll('input, textarea').forEach(field => {
+    field.addEventListener('input', () => {
+      const error = field.parentNode.querySelector('.error-message');
+      if (error) error.remove();
+      field.style.borderColor = '';
+      if (successMessage.style.display === 'block') resetSuccess();
+    });
+  });
 
-  fetch(form.action, {
-    method: form.method,
-    body: formData
-  }).then(response => {
-    if (!response.ok) {
-      submitButton.disabled = false;
-      // Em caso de erro na requisição, mostrar o botão enviar e esconder sucesso
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (submitButton.disabled) return;
+
+    clearErrors();
+
+    // Exibir botão sucesso e esconder botão enviar ao clicar
+    submitButton.style.display = 'none';
+    successMessage.style.display = 'block';
+
+    const formData = new FormData(form);
+    let firstError = null;
+    let hasError = false;
+
+    for (const [name, value] of formData.entries()) {
+      const field = form.querySelector(`[name="${name}"]`);
+      if (!value.trim()) {
+        const messages = {
+          name: 'Digite seu nome completo.',
+          email: 'Digite o seu e-mail.',
+          subject: 'Digite o assunto que deseja tratar.',
+          message: 'Por favor, escreva a sua mensagem.'
+        };
+        showError(field, messages[name] || 'Este campo é obrigatório.');
+        if (!firstError) firstError = field;
+        hasError = true;
+      } else if (name === 'email' && !/^\S+@\S+\.\S+$/.test(value)) {
+        showError(field, 'Ops! Parece que o e-mail está inválido.');
+        if (!firstError) firstError = field;
+        hasError = true;
+      }
+    }
+
+    if (hasError) {
+      firstError.focus();
+      // Mostrar botão enviar e esconder sucesso se houver erro
       submitButton.style.display = 'inline-block';
       successMessage.style.display = 'none';
       return;
     }
-    form.reset();
 
-    // Aqui o sucesso já está visível desde o início, só esperar para resetar
-    setTimeout(resetSuccess, 1700);
-  }).catch(() => {
-    submitButton.disabled = false;
-    submitButton.style.display = 'inline-block';
-    successMessage.style.display = 'none';
-  });
-});
-
-
+    sub
 
 
 
