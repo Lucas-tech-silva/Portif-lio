@@ -73,7 +73,6 @@ function initLazyLoading() {
   }
 }
 
-
 function initContactForm() {
   const form = document.getElementById('formulario-contato');
   const submitButton = document.getElementById('btn-submit');
@@ -158,7 +157,28 @@ function initContactForm() {
       return;
     }
 
-    sub
+    submitButton.disabled = true;
+
+    fetch(form.action, {
+      method: form.method,
+      body: formData
+    }).then(response => {
+      if (!response.ok) {
+        submitButton.disabled = false;
+        submitButton.style.display = 'inline-block';
+        successMessage.style.display = 'none';
+        return;
+      }
+      form.reset();
+      setTimeout(resetSuccess, 1700);
+    }).catch(() => {
+      submitButton.disabled = false;
+      submitButton.style.display = 'inline-block';
+      successMessage.style.display = 'none';
+    });
+  });
+}
+
 
 
 
