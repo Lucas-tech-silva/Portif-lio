@@ -10,6 +10,7 @@
   --blue-light: #eff6ff;
   --blue-medium: #dbeafe;
   --success: #10b981;
+  --black-color: rgb(82, 82, 82);
   --border-radius: 12px;
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -24,6 +25,14 @@
   --section-bg: #eff6ff;
   --navbar-bg: #1e3a8a;
   --footer-bg: linear-gradient(135deg, #1e3a8a, #1e293b);
+
+  /* Scroll */
+
+  --bg-scroll-primary: #121c33;
+  --bg-scroll-secundary: #8ab7ff3d;
+
+  /* ::selection pseudo-element */
+  --selection-color: #92c3ff;
 }
 
 [data-theme="dark"] {
@@ -46,7 +55,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
-  scrollbar-color: var(--dark) var(--gray-light);
+  scrollbar-color: var(--bg-scroll-primary) var(--bg-scroll-secundary)  ;
   scrollbar-width: thin;
 }
 
@@ -58,24 +67,11 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-::-webkit-scrollbar {
-  width: 20px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: var(--gray-light);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--dark);
-  border-radius: 8px;
-}
-
 @layer base {
-  ::selection {
-    background-color: var(--dark);
-    color: #ffffff;
-  }
+::selection {
+  background-color: var(--selection-color);
+  color: var(--dark); 
+}
 }
 
 a {
