@@ -28,8 +28,13 @@
 
   /* Scroll */
 
+<<<<<<< HEAD
   --bg-scroll-primary: #121c33;
   --bg-scroll-secundary: #8ab7ff3d;
+=======
+  --bg-scroll-primary: #173885;
+  --bg-scroll-secundary: #181b20;
+>>>>>>> 6dda1ed (Atualiza estilos)
 
   /* ::selection pseudo-element */
   --selection-color: #92c3ff;
@@ -55,7 +60,11 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+<<<<<<< HEAD
   scrollbar-color: var(--bg-scroll-primary) var(--bg-scroll-secundary)  ;
+=======
+  scrollbar-color: var(--bg-scroll-primary) var(--bg-scroll-secundary);
+>>>>>>> 6dda1ed (Atualiza estilos)
   scrollbar-width: thin;
 }
 
@@ -1176,7 +1185,7 @@ strong:hover {
   }
 
   .hero {
-      padding-top: 220px;
+    padding-top: 220px;
     padding-top: 220px;
   }
 }
@@ -1574,9 +1583,15 @@ strong:hover {
     z-index: 1000;
   }
 
+<<<<<<< HEAD
    .nav-links {
     width: 45%;
    }
+=======
+  .nav-links {
+    width: 45%;
+  }
+>>>>>>> 6dda1ed (Atualiza estilos)
 
   .nav-right {
     position: relative;
@@ -1653,10 +1668,17 @@ strong:hover {
     padding: 0.8rem 1%;
   }
 
+<<<<<<< HEAD
    .nav-links {
     width: 53%;
     font-size: 0.95rem;
    }
+=======
+  .nav-links {
+    width: 53%;
+    font-size: 0.95rem;
+  }
+>>>>>>> 6dda1ed (Atualiza estilos)
 
   .burger {
     display: flex;
