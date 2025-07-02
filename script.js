@@ -168,7 +168,7 @@ function initContactForm() {
 
       setTimeout(() => {
         resetSuccess();
-      }, 1200);
+      }, 1700);
 
     } catch {
       submitButton.disabled = false;
