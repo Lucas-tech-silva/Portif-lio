@@ -115,7 +115,7 @@ function initContactForm() {
     });
   });
 
-  form.addEventListener('submit', async (e) => {
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (submitButton.disabled) return;
 
@@ -174,10 +174,13 @@ function initContactForm() {
       submitButton.disabled = false;
       resetSuccess();
     }
-  });
+})};
+
+function resetSuccess() {
+    submitButton.style.display = 'inline-block';
+    successMessage.style.display = 'none';
+    submitButton.disabled = false;
 }
-
-
 
 function toggleTheme() {
   if (document.body.getAttribute('data-theme') === 'dark') {
@@ -217,3 +220,4 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
