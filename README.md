@@ -69,7 +69,7 @@ Projetado para funcionar perfeitamente em desktops, tablets e celulares, garanti
 
 Desenvolvido por **Lucas Silva** 💻  
 
-- GitHub: [Clique aqui](https://github.com/Lucas-tech-silva)  
+- Perfil do GitHub: [Clique aqui](https://github.com/Lucas-tech-silva)  
 - Projeto Online - Sabor em Casa: [Clique para acessar o site](https://portif-lio-nu-two.vercel.app/)
 - Linkedin: [Clique aqui](https://www.linkedin.com/in/lsssss-developer/)
 
