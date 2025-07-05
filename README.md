@@ -107,6 +107,6 @@ Desenvolvido por **Lucas Silva** 💻
   <img src="https://i.imgur.com/VBoHZFs.gif" width="280" alt="Animação de programação"/>
 </p>
 
-<p align="center">
-  <i>🧩 "Cada linha de código escrita com intenção é uma ponte entre ideias e realidade." — Lucas Silva</i>
+<p align="center" style="font-style: italic; color: #444;">
+  ✨ "Código com significado cria conexões reais e resultados duradouros." — Lucas Silva
 </p>
