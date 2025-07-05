@@ -4,7 +4,7 @@ Este **portfólio pessoal** foi desenvolvido por mim com foco em **experiência 
 
 ---
 
-📬 Contato e Colaboração
+## 📬 Contato e Colaboração
 
 Se desejar saber mais sobre este projeto ou discutir oportunidades de colaboração, ficarei feliz em conversar!
 Sinta-se à vontade para entrar em contato comigo pelas redes sociais abaixo.
