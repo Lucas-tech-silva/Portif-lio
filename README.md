@@ -89,11 +89,13 @@ Caso queira conhecer o site em funcionamento ou me convidar para uma colaboraç�
 </p>
 
 <br>
+
 ---
 
 ## 📌 Status do Projeto
 
 ✅ Concluído | 💡 Melhorias futuras: animações mais interativas, dashboard de visualizações, integração com API de contatos, blog com dicas de carreira e modo acessível (alto contraste + teclas de navegação).
+
 
 ---
 
