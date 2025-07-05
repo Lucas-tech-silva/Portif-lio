@@ -118,7 +118,7 @@ Se quiser conhecer o site em funcionamento ou conversar sobre uma possível cola
 <br>
 
 <p align="center">
-  <img src="https://media1.tenor.com/m/CT6PTBJzG7cAAAAC/pgomaing.gif" width="280" alt="Animação de programação"/>
+  <img src="https://media1.tenor.com/m/uwdvcjTWrVMAAAAC/coding-boy-coding.gif" width="280" alt="Animação de programação"/>
 </p>
 
 <br>
