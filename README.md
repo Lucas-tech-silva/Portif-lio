@@ -4,13 +4,10 @@ Este **portfólio pessoal** foi desenvolvido por mim com foco em **experiência 
 
 ---
 
-## 🔒 Repositório Privado
+📬 Contato e Colaboração
 
-Este repositório está **privado** com o objetivo de proteger:
-
-- A **estrutura única do código-fonte**
-- A **identidade visual** pensada exclusivamente para minha apresentação profissional
-- O uso estratégico de **animações, responsividade e navegação fluida**
+Se desejar saber mais sobre este projeto ou discutir oportunidades de colaboração, ficarei feliz em conversar!
+Sinta-se à vontade para entrar em contato comigo pelas redes sociais abaixo.
 
 Caso queira conhecer o site em funcionamento ou me convidar para uma colaboração, sinta-se à vontade para me contatar. 👇  
 <br>
