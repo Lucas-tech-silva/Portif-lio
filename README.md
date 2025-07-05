@@ -105,6 +105,7 @@ Se quiser conhecer o site em funcionamento ou conversar sobre uma possível cola
 
 ✅ Concluído | 💡 Melhorias futuras: animações mais interativas, dashboard de visualizações, integração com API de contatos, blog com dicas de carreira e modo acessível (alto contraste + teclas de navegação).
 
+<br>
 
 ---
 
