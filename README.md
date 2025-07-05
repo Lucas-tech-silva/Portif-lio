@@ -51,7 +51,6 @@ portifolio/
 │   └── cv/
 ├── sitemap.xml         ← facilita indexação do site pelo Google
 ├── robots.txt          ← define regras para rastreadores (SEO técnico)
-└── README.md
 </pre> 
 
 <br>
@@ -71,7 +70,7 @@ Projetado para funcionar perfeitamente em desktops, tablets e celulares, garanti
 Desenvolvido por **Lucas Silva** 💻  
 
 - GitHub: [Clique aqui](https://github.com/Lucas-tech-silva)  
-- Portfólio: [Clique aqui](https://portif-lio-nu-two.vercel.app/)
+- Projeto Online (site) — Sabor em Casa: [Clique para acessar o site](https://portif-lio-nu-two.vercel.app/)
 - Linkedin: [Clique aqui](https://www.linkedin.com/in/lsssss-developer/)
 
   <br>
