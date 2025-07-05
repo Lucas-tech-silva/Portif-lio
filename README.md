@@ -82,7 +82,7 @@ Desenvolvido por **Lucas Silva** 💻
 Se desejar saber mais sobre este projeto ou discutir oportunidades de colaboração, ficarei feliz em conversar!
 Sinta-se à vontade para entrar em contato comigo pelas redes sociais abaixo.
 
-Caso queira conhecer o site em funcionamento ou me convidar para uma colaboração, sinta-se à vontade para me contatar. 👇  
+Se quiser conhecer o site em funcionamento ou conversar sobre uma possível colaboração, fique à vontade para entrar em contato comigo. 👇
 
 <br>
 
