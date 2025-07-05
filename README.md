@@ -118,7 +118,7 @@ Se quiser conhecer o site em funcionamento ou conversar sobre uma possível cola
 <br>
 
 <p align="center">
-  <img src="https://i.imgur.com/VBoHZFs.gif" width="280" alt="Animação de programação"/>
+  <img src="https://tenor.com/bDu5M.gif" width="280" alt="Animação de programação"/>
 </p>
 
 <br>
