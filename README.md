@@ -5,28 +5,6 @@ Este **portfólio pessoal** foi desenvolvido por mim com foco em **experiência 
 
 ---
 
-## 📬 Contato e Colaboração
-
-Se desejar saber mais sobre este projeto ou discutir oportunidades de colaboração, ficarei feliz em conversar!
-Sinta-se à vontade para entrar em contato comigo pelas redes sociais abaixo.
-
-Caso queira conhecer o site em funcionamento ou me convidar para uma colaboração, sinta-se à vontade para me contatar. 👇  
-<br>
-
-<p align="center">
-  <a href="https://www.linkedin.com/in/lucas-silva-ab6360365/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
-  </a>
-  <a href="mailto:lucassilva1710@yahoo.com?subject=Interesse%20em%20seu%20portf%C3%B3lio&body=Prezado%20Lucas%2C%0D%0A%0D%0AVisitei%20seu%20perfil%20e%20fiquei%20interessado%20em%20seu%20portf%C3%B3lio.%20Gostaria%20de%20conversar%20sobre%20uma%20poss%C3%ADvel%20colabora%C3%A7%C3%A3o.%0D%0A%0D%0AFico%20no%20aguardo%20de%20seu%20retorno." target="_blank" rel="noopener noreferrer" aria-label="Yahoo Mail">
-    <img src="https://img.shields.io/badge/Yahoo-6001D2?style=for-the-badge&logo=yahoo&logoColor=white" alt="Yahoo Mail"/>
-  </a>
-  <a href="https://wa.me/5511995442274?text=Prezado%20Lucas%2C%20tudo%20bem%3F%20Acessei%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade%20profissional." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-    <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp"/>
-  </a>
-</p>
-
----
-
 ## 🚀 Tecnologias Utilizadas
 
 - 🔹 **HTML5** — semântica e estrutura limpa  
@@ -87,7 +65,30 @@ Desenvolvido por **Lucas Silva** 💻
 - GitHub: [Clique aqui](https://github.com/Lucas-tech-silva)  
 - Portfólio: [Clique aqui](https://portif-lio-nu-two.vercel.app/)
 - Linkedin: [Clique aqui](https://www.linkedin.com/in/lsssss-developer/)
+  
+---
 
+## 📬 Contato e Colaboração
+
+Se desejar saber mais sobre este projeto ou discutir oportunidades de colaboração, ficarei feliz em conversar!
+Sinta-se à vontade para entrar em contato comigo pelas redes sociais abaixo.
+
+Caso queira conhecer o site em funcionamento ou me convidar para uma colaboração, sinta-se à vontade para me contatar. 👇  
+<br>
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/lucas-silva-ab6360365/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+  <a href="mailto:lucassilva1710@yahoo.com?subject=Interesse%20em%20seu%20portf%C3%B3lio&body=Prezado%20Lucas%2C%0D%0A%0D%0AVisitei%20seu%20perfil%20e%20fiquei%20interessado%20em%20seu%20portf%C3%B3lio.%20Gostaria%20de%20conversar%20sobre%20uma%20poss%C3%ADvel%20colabora%C3%A7%C3%A3o.%0D%0A%0D%0AFico%20no%20aguardo%20de%20seu%20retorno." target="_blank" rel="noopener noreferrer" aria-label="Yahoo Mail">
+    <img src="https://img.shields.io/badge/Yahoo-6001D2?style=for-the-badge&logo=yahoo&logoColor=white" alt="Yahoo Mail"/>
+  </a>
+  <a href="https://wa.me/5511995442274?text=Prezado%20Lucas%2C%20tudo%20bem%3F%20Acessei%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade%20profissional." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp"/>
+  </a>
+</p>
+
+<br>
 ---
 
 ## 📌 Status do Projeto
