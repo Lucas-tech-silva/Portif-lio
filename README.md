@@ -35,6 +35,8 @@ O objetivo deste portfólio é **apresentar meus principais projetos, habilidade
 
 ---
 
+<br>
+
 ## 📁 Estrutura do Projeto
 
 <pre>
@@ -52,11 +54,15 @@ portifolio/
 └── README.md
 </pre> 
 
+<br>
+
 ---
 
 ## 📱 Responsividade
 
-Projetado para funcionar perfeitamente em **desktops, tablets e celulares**, garantindo uma boa experiência em qualquer resolução.
+Projetado para funcionar perfeitamente em desktops, tablets e celulares, garantindo uma boa experiência em qualquer resolução. O menu hambúrguer foi implementado para dispositivos móveis, proporcionando uma navegação prática e intuitiva ao otimizar o espaço da tela pequena.
+
+<br>
 
 ---
 
@@ -67,7 +73,8 @@ Desenvolvido por **Lucas Silva** 💻
 - GitHub: [Clique aqui](https://github.com/Lucas-tech-silva)  
 - Portfólio: [Clique aqui](https://portif-lio-nu-two.vercel.app/)
 - Linkedin: [Clique aqui](https://www.linkedin.com/in/lsssss-developer/)
-  
+
+  <br>
 ---
 
 ## 📬 Contato e Colaboração
@@ -76,6 +83,7 @@ Se desejar saber mais sobre este projeto ou discutir oportunidades de colaboraç
 Sinta-se à vontade para entrar em contato comigo pelas redes sociais abaixo.
 
 Caso queira conhecer o site em funcionamento ou me convidar para uma colaboração, sinta-se à vontade para me contatar. 👇  
+
 <br>
 
 <p align="center">
