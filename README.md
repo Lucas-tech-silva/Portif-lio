@@ -121,6 +121,8 @@ Se quiser conhecer o site em funcionamento ou conversar sobre uma possível cola
   <img src="https://i.imgur.com/VBoHZFs.gif" width="280" alt="Animação de programação"/>
 </p>
 
+<br>
+
 <p align="center" style="font-style: italic; color: #444;">
   ✨ "Código com significado cria conexões reais e resultados duradouros." — Lucas Silva
 </p>
