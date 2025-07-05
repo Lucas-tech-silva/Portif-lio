@@ -42,13 +42,16 @@ Caso queira conhecer o site em funcionamento ou me convidar para uma colaboraç�
 
 ## 🧠 Sobre o Portfólio
 
-O objetivo deste portfólio é **apresentar meus principais projetos, habilidades e experiências** de forma visualmente atraente, moderna e funcional:
+O objetivo deste portfólio é **apresentar meus principais projetos, habilidades e experiências** de forma moderna, acessível e funcional, com foco total em **UX (User Experience)** — ou seja, entregar uma navegação agradável, intuitiva e eficiente para quem acessa:
 
-- 🎯 Seções: Início, Sobre Mim, Projetos, Contato  
-- 🎨 UI responsiva adaptada para todos os dispositivos  
-- 💬 Formulário de contato funcional com integração via FormSubmit  
-- 🌙 Modo claro e escuro com alternância em tempo real  
-- 🔄 Navegação fluida com animações suaves  
+- 🎯 Seções bem definidas: Início, Sobre Mim, Projetos e Contato — pensadas para uma navegação previsível e fluida  
+- 🧭 Arquitetura da informação organizada para facilitar o fluxo natural de leitura e interação  
+- 🎨 Interface responsiva e adaptada para todos os dispositivos, com abordagem **mobile first**  
+- 💬 Formulário de contato funcional, com feedback visual claro (confirmação e erros)  
+- 🌙 Alternância entre modo claro e escuro com respeito às preferências do usuário  
+- 🔄 Transições e animações suaves, otimizadas para performance e conforto visual  
+- 👁️ Uso consciente de tipografia, espaçamentos, contraste e hierarquia visual, favorecendo a acessibilidade e usabilidade  
+
 
 ---
 
@@ -80,9 +83,9 @@ Projetado para funcionar perfeitamente em **desktops, tablets e celulares**, gar
 
 Desenvolvido por **Lucas Silva** 💻  
 
-- GitHub: [github.com/seu-usuario](https://github.com/seu-usuario)  
-- Portfólio: [seusite.dev](https://seusite.dev)  
-- Instagram: [@seuinsta](https://instagram.com/seuinsta)
+- GitHub: [github.com/seu-usuario](https://github.com/Lucas-tech-silva)  
+- Portfólio: [seusite.dev](https://portif-lio-nu-two.vercel.app/)
+- Linkedin: [@seulinkedin](https://www.linkedin.com/in/lsssss-developer/)
 
 ---
 
