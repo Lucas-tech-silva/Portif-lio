@@ -23,7 +23,7 @@ Este **portfólio pessoal** foi desenvolvido por mim com foco em **experiência 
 
 O objetivo deste portfólio é **apresentar meus principais projetos, habilidades e experiências** de forma moderna, acessível e funcional, com foco total em **UX (User Experience)** — ou seja, entregar uma navegação agradável, intuitiva e eficiente para quem acessa:
 
-- 🎯 Seções bem definidas: Início, Sobre Mim, Projetos e Contato — pensadas para uma navegação previsível e fluida  
+- 🎯 Seções bem definidas: Início, Sobre, Habilidades, Projetos e Contato — pensadas para uma navegação previsível e fluida  
 - 🧭 Arquitetura da informação organizada para facilitar o fluxo natural de leitura e interação  
 - 🎨 Interface responsiva e adaptada para todos os dispositivos, com abordagem **mobile first**  
 - 💬 Formulário de contato funcional, com feedback visual claro (confirmação e erros)  
