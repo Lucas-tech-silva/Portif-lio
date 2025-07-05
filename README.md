@@ -10,7 +10,7 @@ Este **portfólio pessoal** foi desenvolvido por mim com foco em **experiência 
 - 🔹 **HTML5** — semântica e estrutura limpa  
 - 🔹 **CSS3** — layout responsivo, grid/flexbox e animações suaves  
 - 🔹 **JavaScript** — interação, navegação dinâmica e manipulação de elementos   
-- 🔹 **SEO** — otimização para melhorar a indexação e visibilidade do site nos motores de busca, garantindo melhor ranqueamento e alcance orgânico.
+- 🔹 **SEO** — otimização para melhorar a indexação e visibilidade do site nos motores de busca, garantindo melhor ranqueamento.
 - 🔹 **Design UX/UI** — foco na navegação fluida, visual limpo e usabilidade
 - 🔹 **Figma** — prototipagem e layout visual 
 - 🔹 **Git/GitHub** — versionamento e deploy  
