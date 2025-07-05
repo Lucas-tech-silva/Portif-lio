@@ -33,10 +33,12 @@ Caso queira conhecer o site em funcionamento ou me convidar para uma colaboraç�
 
 - 🔹 **HTML5** — semântica e estrutura limpa  
 - 🔹 **CSS3** — layout responsivo, grid/flexbox e animações suaves  
-- 🔹 **JavaScript** — interação, navegação dinâmica e manipulação de elementos  
-- 🔹 **Figma** — prototipagem e layout visual  
+- 🔹 **JavaScript** — interação, navegação dinâmica e manipulação de elementos   
+- 🔹 **SEO** — otimização para melhorar a indexação e visibilidade do site nos motores de busca, garantindo melhor ranqueamento e maior alcance orgânico.
+- 🔹 **Design UX/UI** — foco na navegação fluida, visual limpo e usabilidade
+- 🔹 **Figma** — prototipagem e layout visual 
 - 🔹 **Git/GitHub** — versionamento e deploy  
-- 🔹 **SEO básico** — estrutura otimizada para buscas  
+
 
 ---
 
@@ -66,6 +68,7 @@ portifolio/
 │   └── main.js
 ├── assets/
 │   └── img/
+│   └── cv/
 ├── sitemap.xml         ← facilita indexação do site pelo Google
 ├── robots.txt          ← define regras para rastreadores (SEO técnico)
 └── README.md
