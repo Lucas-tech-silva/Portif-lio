@@ -15,6 +15,7 @@ Este **portfólio pessoal** foi desenvolvido por mim com foco em **experiência 
 - 🔹 **Figma** — prototipagem e layout visual 
 - 🔹 **Git/GitHub** — versionamento e deploy  
 
+<br>
 
 ---
 
@@ -30,6 +31,7 @@ O objetivo deste portfólio é **apresentar meus principais projetos, habilidade
 - 🔄 Transições e animações suaves, otimizadas para performance e conforto visual  
 - 👁️ Uso consciente de tipografia, espaçamentos, contraste e hierarquia visual, favorecendo a acessibilidade e usabilidade  
 
+<br>
 
 ---
 
