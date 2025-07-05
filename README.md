@@ -1,6 +1,7 @@
 # 💼 Portfólio - Lucas Silva
 
 Este **portfólio pessoal** foi desenvolvido por mim com foco em **experiência do usuário (UX)**, **design limpo (UI)** e **responsividade total**. Foi criado do zero — desde a **estrutura HTML**, **estilo CSS**, até a **lógica com JavaScript** e a **organização visual no Figma**.
+
 <br>
 
 ---
