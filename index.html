@@ -79,9 +79,8 @@
                         </div>
                     </div>
                     <div class="hero-image">
-                        <img src="assets/img/Foto de programação-1.png "
-                            alt="Lucas Silva desenvolvedor front-end" width="600" height="400"
-                            loading="eager">
+                        <img src="assets/img/Foto de programação-1.png " alt="Lucas Silva desenvolvedor front-end"
+                            width="600" height="400" loading="eager">
                     </div>
                 </div>
             </div>
@@ -92,8 +91,8 @@
                 <h2 class="section-title">Sobre Mim</h2>
                 <div class="about-content">
                     <div class="about-image">
-                        <img src="assets/img/Foto de programação-2.png" alt="Lucas Silva desenvolvedor front-end" width="500"
-                            height="350" loading="lazy">
+                        <img src="assets/img/Foto de programação-2.png" alt="Lucas Silva desenvolvedor front-end"
+                            width="500" height="350" loading="lazy">
                     </div>
                     <div class="about-text">
                         <h3>Quem sou eu?</h3>
@@ -115,7 +114,8 @@
 
         <section id="habilidades" class="skills">
             <div class="container">
-                <h2 class="section-title">Minhas Habilidades</h2>
+                <h2 class="section-title">Minhas Habilidades <span>Um breve resumo do meu domínio técnico</span></h2>
+
                 <div class="skills-container">
                     <article class="skill-card">
                         <div class="skill-card-header">
@@ -138,7 +138,8 @@
                     <article class="skill-card">
                         <div class="skill-card-header">
                             <div class="skill-card-icon" aria-hidden="true">
-                                <img src="assets/img/tailwind_css_logo.png" alt="Logo Tailwind CSS" width="32" height="32" />
+                                <img src="assets/img/tailwind_css_logo.png" alt="Logo Tailwind CSS" width="32"
+                                    height="32" />
                             </div>
                             <h3 class="skill-card-title">Tailwind CSS</h3>
                         </div>
@@ -153,14 +154,6 @@
                         </div>
                         <p>Desenvolvimento de funcionalidades <strong>interativas</strong> e <strong>dinâmicas</strong>
                             para web.</p>
-                    </article>
-
-                    <article class="skill-card">
-                        <div class="skill-card-header">
-                            <div class="skill-card-icon" aria-hidden="true"><i class="fab fa-react"></i></div>
-                            <h3 class="skill-card-title">React</h3>
-                        </div>
-                        <p>Criação de <strong>interfaces de usuário</strong> componentizadas e reutilizáveis.</p>
                     </article>
 
                     <article class="skill-card">
@@ -185,17 +178,106 @@
         <section id="projetos" class="projects">
             <div class="container">
                 <h2 class="section-title">Meus Projetos</h2>
+
+                <div class="portfolio-filters">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">
+                            <span class="filter-icon"><i class="fas fa-th"></i></span>
+                            <span class="filter-text">Todos</span>
+                            <span class="filter-underline"></span>
+                        </button>
+                        <button class="filter-btn" data-filter="web">
+                            <span class="filter-icon"><i class="fas fa-globe"></i></span>
+                            <span class="filter-text">Web</span>
+                            <span class="filter-underline"></span>
+                        </button>
+                        <button class="filter-btn" data-filter="design">
+                            <span class="filter-icon"><i class="fas fa-paint-brush"></i></span>
+                            <span class="filter-text">Design</span>
+                            <span class="filter-underline"></span>
+                        </button>
+                        <button class="filter-btn" data-filter="mobile">
+                            <span class="filter-icon"><i class="fas fa-mobile-alt"></i></span>
+                            <span class="filter-text">Mobile</span>
+                            <span class="filter-underline"></span>
+                        </button>
+                    </div>
+                    <div class="filter-active-indicator"></div>
+                </div>
+
                 <div class="projects-grid">
 
                     <article class="project-card">
                         <div class="project-image">
-                            <img src="assets/NEOWERTHER.png" alt="NeoWeather - Aplicativo de Clima" width="600"
-                                height="400" loading="lazy">
+                            <img src="assets/img/mockup/Sabor-em-casa.png" alt="Sabor em casa - Website de Receitas"
+                                width="600" height="400" loading="lazy">
                         </div>
                         <div class="project-info">
-                            <h3>NeoWeather</h3>
-                            <p>Aplicativo de clima responsivo feito com HTML, CSS e JS, usando a API do OpenWeatherMap.
-                                Possui fundo animado com Particles.js e exibe clima em tempo real.</p>
+                            <h3>Sabor em Casa - Website de Receitas</h3>
+                            <p>Plataforma de receitas responsiva desenvolvida com HTML, Tailwind CSS e JavaScript. Conta
+                                com SEO, interações dinâmicas e foco em UX/UI para uma navegação agradável em qualquer
+                                dispositivo.</p>
+                            <div class="project-tags" aria-label="Tecnologias utilizadas">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">Tailwind CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">SEO</span>
+                                <span class="project-tag">UX/UI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://sabor-em-casa.vercel.app/" target="_blank"
+                                    class="btn btn-primary btn-sm">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver Projeto
+                                </a>
+                                <a href="https://github.com/Lucas-tech-silva/Sabor-em-Casa-Receitas" target="_blank"
+                                    class="btn btn-outline btn-sm">
+                                    <i class="fas fa-code" aria-hidden="true"></i> Código
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Landing Page Responsiva" width="600" height="400" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <h3>Landing Page - Freelancer</h3>
+                            <p>Página responsiva criada com HTML5, CSS3 e JavaScript. Ideal para profissionais autônomos
+                                e pequenas empresas. Possui estrutura semântica, visual limpo, interações leves em JS e
+                                otimização de SEO para melhor presença online.</p>
+                            <div class="project-tags" aria-label="Tecnologias utilizadas">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">SEO</span>
+                                <span class="project-tag">UX/UI</span>
+
+                            </div>
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver Projeto
+                                </a>
+                                <a href="#" target="_blank" class="btn btn-outline btn-sm">
+                                    <i class="fas fa-code" aria-hidden="true"></i> Código
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="assets/img/mockup/NEOWERTHER.png" alt="NeoWeather - Aplicativo de Clima"
+                                width="600" height="400" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <h3>NeoWeather - Site de Previsão do Tempo</h3>
+                            <p>Site responsivo que exibe o clima em tempo real usando a API do OpenWeatherMap.
+                                Desenvolvido com HTML, CSS e JavaScript, possui fundo animado com Particles.js e design
+                                adaptado a todas as telas.
+                            </p>
                             <div class="project-tags" aria-label="Tecnologias utilizadas">
                                 <span class="project-tag">HTML</span>
                                 <span class="project-tag">CSS</span>
@@ -204,63 +286,16 @@
                                 <span class="project-tag">Particles.js</span>
                             </div>
                             <div class="project-links">
-                                <a href="#" target="_blank" class="btn btn-primary btn-sm"><i
-                                        class="fas fa-external-link-alt" aria-hidden="true"></i> Ver Demo</a>
-                                <a href="#" target="_blank" class="btn btn-outline btn-sm"><i class="fas fa-code"
-                                        aria-hidden="true"></i> Código</a>
+                                <a href="#" target="_blank" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver Projeto
+                                </a>
+                                <a href="#" target="_blank" class="btn btn-outline btn-sm">
+                                    <i class="fas fa-code" aria-hidden="true"></i> Código
+                                </a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
-                                alt="Landing Page Responsiva" width="600" height="400" loading="lazy">
-                        </div>
-                        <div class="project-info">
-                            <h3>Landing Page</h3>
-                            <p>Página estática moderna criada com HTML5 e CSS3 puro. Design responsivo, ideal para
-                                empresas e portfólios. Foco em estrutura semântica e boa apresentação visual.</p>
-                            <div class="project-tags" aria-label="Tecnologias utilizadas">
-                                <span class="project-tag">HTML</span>
-                                <span class="project-tag">CSS</span>
-                                <span class="project-tag">HTML</span>
-                                <span class="project-tag">UX/UI</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" target="_blank" class="btn btn-primary btn-sm"><i
-                                        class="fas fa-external-link-alt" aria-hidden="true"></i> Ver Demo</a>
-                                <a href="#" target="_blank" class="btn btn-outline btn-sm"><i class="fas fa-code"
-                                        aria-hidden="true"></i> Código</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
-                                alt="Conversor de Dólar" width="600" height="400" loading="lazy">
-                        </div>
-                        <div class="project-info">
-                            <h3>Conversor de Dólar</h3>
-                            <p>Conversor de moeda feito com JavaScript, HTML e CSS.
-                                Usa API para obter a cotação atual do dólar em tempo real.
-                                Interface simples, intuitiva e interativa.</p>
-                            <div class="project-tags" aria-label="Tecnologias utilizadas">
-                                <span class="project-tag">HTML</span>
-                                <span class="project-tag">CSS</span>
-                                <span class="project-tag">JavaScript</span>
-                                <span class="project-tag">API</span>
-                                <span class="project-tag">UX/UI</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" target="_blank" class="btn btn-primary btn-sm"><i
-                                        class="fas fa-external-link-alt" aria-hidden="true"></i> Ver Demo</a>
-                                <a href="#" target="_blank" class="btn btn-outline btn-sm"><i class="fas fa-code"
-                                        aria-hidden="true"></i> Código</a>
-                            </div>
-                        </div>
-                    </article>
                 </div>
             </div>
         </section>
