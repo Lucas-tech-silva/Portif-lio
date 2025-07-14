@@ -71,7 +71,7 @@ Desenvolvido por **Lucas Silva** 💻
 
 - Perfil do GitHub: [Clique aqui](https://github.com/Lucas-tech-silva)  
 - Projeto Online - Sabor em Casa: [Clique aqui](https://sabor-em-casa.vercel.app/)
-- Linkedin: [Clique aqui](https://www.linkedin.com/in/lsssss-developer/)
+- Linkedin: [Clique aqui](https://www.linkedin.com/in/lucassilva-developer/)
 
   <br>
 ---
@@ -86,7 +86,7 @@ Se quiser conhecer o site em funcionamento ou conversar sobre uma possível cola
 <br>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/lucas-silva-ab6360365/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+  <a href="https://www.linkedin.com/in/lucassilva-developer/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
     <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
   </a>
   <a href="mailto:lucassilva1710@yahoo.com?subject=Interesse%20em%20seu%20portf%C3%B3lio&body=Prezado%20Lucas%2C%0D%0A%0D%0AVisitei%20seu%20perfil%20e%20fiquei%20interessado%20em%20seu%20portf%C3%B3lio.%20Gostaria%20de%20conversar%20sobre%20uma%20poss%C3%ADvel%20colabora%C3%A7%C3%A3o.%0D%0A%0D%0AFico%20no%20aguardo%20de%20seu%20retorno." target="_blank" rel="noopener noreferrer" aria-label="Yahoo Mail">
