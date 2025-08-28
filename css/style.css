@@ -121,7 +121,7 @@ h3 {
   display: block;
   font-size: 0.33em;
   font-weight: normal;
-  color: rgb(120, 0, 0);
+  color: rgb(160, 0, 0);
   margin-top: 4px;
 }
 
@@ -1729,3 +1729,4 @@ strong:hover {
     padding: 1.2rem;
   }
 }
+
