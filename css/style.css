@@ -556,6 +556,11 @@ p {
   border-radius: 2px;
 }
 
+.project-info span {
+  font-size: 0.7rem;
+  color: rgb(150, 0, 0);
+}
+
 .project-info h3 {
   font-size: 1.4rem;
   margin-bottom: 1rem;
@@ -1729,4 +1734,5 @@ strong:hover {
     padding: 1.2rem;
   }
 }
+
 
